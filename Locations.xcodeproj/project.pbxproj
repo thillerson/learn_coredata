@@ -15,6 +15,9 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28C3AD8A0F43EF2300507BA6 /* Locations.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 28C3AD890F43EF2300507BA6 /* Locations.xcdatamodel */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
+		EA6F36F210E00763005BF597 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA6F36F010E00763005BF597 /* RootViewController.m */; };
+		EA6F36F510E00774005BF597 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6F36F410E00774005BF597 /* CoreLocation.framework */; };
+		EA6F371C10E01732005BF597 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = EA6F371B10E01732005BF597 /* Event.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,11 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Locations_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Locations_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Locations-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Locations-Info.plist"; sourceTree = "<group>"; };
+		EA6F36EF10E00763005BF597 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		EA6F36F010E00763005BF597 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		EA6F36F410E00774005BF597 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EA6F371A10E01732005BF597 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
+		EA6F371B10E01732005BF597 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
+				EA6F36F510E00774005BF597 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +59,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EA6F371D10E01748005BF597 /* Model */,
+				EA6F36EE10E00740005BF597 /* View Controller */,
 				1D3623240D0F684500981E51 /* LocationsAppDelegate.h */,
 				1D3623250D0F684500981E51 /* LocationsAppDelegate.m */,
 			);
@@ -98,12 +109,31 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA6F36F410E00774005BF597 /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 				28D801B30F44B63D00FB423F /* CoreData.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA6F36EE10E00740005BF597 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EA6F36EF10E00763005BF597 /* RootViewController.h */,
+				EA6F36F010E00763005BF597 /* RootViewController.m */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		EA6F371D10E01748005BF597 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EA6F371A10E01732005BF597 /* Event.h */,
+				EA6F371B10E01732005BF597 /* Event.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +161,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = EffectiveUI;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Locations" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
@@ -162,6 +195,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* LocationsAppDelegate.m in Sources */,
 				28C3AD8A0F43EF2300507BA6 /* Locations.xcdatamodel in Sources */,
+				EA6F36F210E00763005BF597 /* RootViewController.m in Sources */,
+				EA6F371C10E01732005BF597 /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +246,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos3.1.2;
 			};
 			name = Debug;

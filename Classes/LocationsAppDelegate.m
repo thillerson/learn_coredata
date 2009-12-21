@@ -3,25 +3,38 @@
 //  Locations
 //
 //  Created by Tony Hillerson on 12/21/09.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Copyright EffectiveUI 2009. All rights reserved.
 //
 
 #import "LocationsAppDelegate.h"
-
+#import "RootViewController.h"
 
 @implementation LocationsAppDelegate
 
 @synthesize window;
-
+@synthesize managedObjectModel;
+@synthesize managedObjectContext;
+@synthesize persistentStoreCoordinator;
+@synthesize navigationController;
 
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
-    
-    // Override point for customization after app launch    
-
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	RootViewController *rvc = [[RootViewController alloc] initWithStyle:UITableViewStylePlain];
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:rvc];
+	
+	NSManagedObjectContext *context = self.managedObjectContext; // lazily created
+	rvc.managedObjectContext = context;
+	
+	self.navigationController = navController;
+	
+	[window addSubview:self.navigationController.view];
 	[window makeKeyAndVisible];
+	
+	[navController release];
+	[rvc release];
+	return YES;
 }
 
 /**
